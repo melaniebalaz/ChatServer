@@ -28,7 +28,6 @@ public class SocketHandlerTask implements Runnable{
             try {
                 //GET INPUT from the socket and store it in a reader
                 BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                System.out.println("Trying to read");
                 chatMessage = reader.readLine();
             } catch (IOException exception) {
                 throw new RuntimeException("Could not get input", exception);
@@ -40,7 +39,7 @@ public class SocketHandlerTask implements Runnable{
             Vector<Socket> clientSockets = server.getClientSockets();
 
             //TODO SYNCHRONIZED STATEMENT
-            //Create a writer and an output stream
+            //WRITE TO SOCKETS
             synchronized (this) {
                 try {
                     //Write to each socket
