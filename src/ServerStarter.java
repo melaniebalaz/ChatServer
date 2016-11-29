@@ -8,7 +8,7 @@ public class ServerStarter {
 
         //Create a server
         ChatServer server = new ChatServer(9000,pool);
-        new Thread(server).start();
+        server.run();
         server.stop();
 
     }

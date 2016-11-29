@@ -46,7 +46,9 @@ public class SocketHandlerTask implements Runnable{
                     for (Socket socket : clientSockets) {
                         if (socket != clientSocket){
                             PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
-                            writer.println(chatMessage);
+                            if (chatMessage != null){
+                                writer.println(chatMessage);
+                            }
                         }
                     }
                 } catch (IOException exception) {
